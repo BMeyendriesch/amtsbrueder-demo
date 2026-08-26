@@ -51,6 +51,7 @@ h3{font-family:var(--font-display);text-transform:uppercase;font-weight:400;lett
 p{margin:0 0 1em}
 .lead{font-size:clamp(19px,2.4vw,23px);line-height:1.55}
 .muted{color:var(--ink-soft)}
+.nb{white-space:nowrap}
 .small{font-family:var(--font-sans);font-size:14.5px;line-height:1.55}
 .hinweis{font-family:var(--font-sans);font-size:13px;letter-spacing:.04em;text-transform:uppercase;
   color:#fff;background:var(--teal);display:inline-block;padding:4px 12px;border-radius:2px;margin:0 0 22px;font-weight:700}
@@ -141,6 +142,12 @@ section.band.tint{background:linear-gradient(0deg,rgba(36,28,20,.03),rgba(36,28,
 .tack.r0{transform:rotate(-.6deg)}
 .tack:hover{transform:rotate(0deg) scale(1.015)}
 
+/* Videorahmen (Startseite) */
+.videorahmen{max-width:860px;margin:26px auto 0}
+.videorahmen video{width:100%;height:auto;display:block;background:#000;aspect-ratio:16/9}
+.videorahmen:hover{transform:rotate(-.6deg)}
+@media (max-width:600px){.videorahmen{transform:none;padding:8px 8px 12px}}
+
 /* Formationen (Startseite) */
 .formationen{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(22px,4vw,44px);margin-top:18px}
 @media (max-width:820px){.formationen{grid-template-columns:1fr;max-width:520px}}
@@ -154,15 +161,15 @@ section.band.tint{background:linear-gradient(0deg,rgba(36,28,20,.03),rgba(36,28,
 /* Plakat-Buttons (Seitenübersicht) */
 .plakate{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:10px}
 @media (max-width:900px){.plakate{grid-template-columns:repeat(2,1fr)}}
-.plakat{display:block;text-decoration:none;color:var(--ink);background:var(--paper-2);border:2px solid var(--frame);
+.plakat{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);background:var(--paper-2);border:2px solid var(--frame);
   border-radius:3px;padding:22px 20px 18px;box-shadow:5px 5px 0 var(--line);position:relative;
   transition:transform .2s ease,box-shadow .2s ease}
 .plakat:nth-child(3n){transform:rotate(-.9deg)}
 .plakat:nth-child(3n+2){transform:rotate(.7deg)}
 .plakat:hover{transform:rotate(0) translateY(-3px);box-shadow:7px 8px 0 var(--line);color:var(--red)}
 .plakat .nr{font-family:var(--font-sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);font-weight:700}
-.plakat .t{font-family:var(--font-display);text-transform:uppercase;font-size:clamp(24px,3vw,34px);line-height:1;margin:.2em 0 .3em}
-.plakat .s{font-family:var(--font-sans);font-size:14px;color:var(--ink-soft)}
+.plakat .t{font-family:var(--font-display);text-transform:uppercase;font-size:clamp(24px,3vw,34px);line-height:1;margin:.2em 0 .3em;text-wrap:balance}
+.plakat .s{font-family:var(--font-sans);font-size:14px;color:var(--ink-soft);margin-top:auto}
 
 /* Chips */
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0;padding:0;list-style:none}
@@ -182,7 +189,7 @@ section.band.tint{background:linear-gradient(0deg,rgba(36,28,20,.03),rgba(36,28,
 .akteur p{font-size:16.5px}
 
 /* Programme */
-.programme{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:8px}
+.programme{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:22px;margin-top:8px}
 .programm{background:var(--paper-2);border:2px solid var(--frame);border-radius:3px;padding:24px 24px 20px;
   box-shadow:5px 5px 0 var(--line);position:relative}
 .programm .art{font-family:var(--font-sans);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--red);font-weight:700}
@@ -193,7 +200,7 @@ section.band.tint{background:linear-gradient(0deg,rgba(36,28,20,.03),rgba(36,28,
 .programm .folgt{font-family:var(--font-sans);font-size:13px;color:var(--ink-soft);font-style:italic}
 
 /* Pressestempel */
-.press-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:8px}
+.press-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:22px;margin-top:8px}
 .stamp{background:var(--paper-2);border:2px solid var(--frame);border-radius:3px;padding:26px 24px 20px;margin:0;
   position:relative;box-shadow:5px 5px 0 var(--line);transition:transform .2s ease,box-shadow .2s ease}
 .stamp:nth-child(3n){transform:rotate(-1.1deg)}
@@ -201,7 +208,8 @@ section.band.tint{background:linear-gradient(0deg,rgba(36,28,20,.03),rgba(36,28,
 .stamp:hover{transform:rotate(0) translateY(-3px);box-shadow:7px 8px 0 var(--line)}
 .stamp .q{font-family:var(--font-serif);font-style:italic;font-size:20px;line-height:1.4;margin:0 0 12px}
 .stamp .q::before{content:"„"}.stamp .q::after{content:"“"}
-.stamp .q.jp{font-style:normal;font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",var(--font-serif)}
+.stamp .q.jp{font-style:normal;font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",var(--font-serif);
+  line-break:strict;word-break:normal;overflow-wrap:normal}
 .stamp cite{font-family:var(--font-sans);font-style:normal;font-size:12.5px;text-transform:uppercase;
   letter-spacing:.06em;color:var(--red);font-weight:700}
 .stamp cite span{display:block;color:var(--ink-soft);font-weight:600;letter-spacing:.02em;margin-top:2px;text-transform:none}
@@ -223,7 +231,7 @@ section.band.tint{background:linear-gradient(0deg,rgba(36,28,20,.03),rgba(36,28,
 @media (max-width:620px){.gig{grid-template-columns:70px 1fr;gap:14px}.gig .where{grid-column:2;text-align:left}}
 
 /* Galerie */
-.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:28px;margin-top:8px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(250px,100%),1fr));gap:28px;margin-top:8px}
 .gallery .tack{cursor:zoom-in}
 .gallery .tack img{aspect-ratio:4/3;object-fit:cover}
 .gallery .tack:nth-child(2n){transform:rotate(1.6deg)}
@@ -231,7 +239,7 @@ section.band.tint{background:linear-gradient(0deg,rgba(36,28,20,.03),rgba(36,28,
 .gallery .tack:hover{transform:rotate(0) scale(1.02);z-index:2}
 
 /* Kontakt / Tickets */
-.tickets{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:10px;max-width:760px}
+.tickets{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:22px;margin-top:10px;max-width:760px}
 .ticket{background:var(--paper-2);border:2px solid var(--frame);border-radius:4px;padding:0;overflow:hidden;
   box-shadow:var(--shadow);display:flex;flex-direction:column}
 .ticket .stub{background:var(--frame);color:var(--paper);font-family:var(--font-display);text-transform:uppercase;
@@ -280,7 +288,7 @@ footer li{margin:0 0 3px}
   .tack,.stamp,.btn,.plakat{transition:none}
 }
 @media print{
-  header.nav,.navtoggle,.hero-cta,.lb{display:none}
+  header.nav,.navtoggle,.hero-cta,.lb,.videorahmen{display:none}
   .page-frame{border:none;margin:0}
   .reveal{opacity:1;transform:none}
 }
