@@ -307,3 +307,22 @@ footer li{margin:0 0 3px}
   .page-frame{border:none;margin:0}
   .reveal{opacity:1;transform:none}
 }
+
+/* ---------- Korrekturen nach Ulis Liste vom 31.08.2026 ---------- */
+/* 1) Titelfoto: auf breiten Schirmen war Mannis Kopf angeschnitten */
+@media (min-width:721px){.hero{background-position:center 22%}}
+/* 2) Schriftzug „Die Amtsbrüder“ lief auf schmalen Schirmen über den Rand */
+@media (max-width:520px){.hero h1{font-size:clamp(34px,11.5vw,52px)}}
+/* 3) Foto mit Anne Heinz: Ausschnitt nach oben, damit die Köpfe drin bleiben */
+.formation .tack.kopf-oben img{object-position:50% 12%}
+/* 4) Musikrichtungen: ein Rahmen um die Aufzählung statt einer je Wort */
+.chips.rahmen{border:2px solid var(--frame);border-radius:12px;background:var(--paper-2);
+  padding:14px 18px;gap:0 10px;align-items:baseline}
+.chips.rahmen li{border:0;background:transparent;padding:0;border-radius:0}
+.chips.rahmen li:not(:last-child)::after{content:"·";margin-left:10px;color:var(--frame);font-weight:400}
+/* 11) Neues Programm über die volle Breite, Foto links */
+.programm.gross{grid-column:1/-1;display:grid;grid-template-columns:minmax(240px,36%) 1fr;
+  gap:clamp(20px,3vw,34px);align-items:start}
+@media (max-width:720px){.programm.gross{grid-template-columns:1fr}}
+.programm.gross figure.tack{margin:0;max-width:none}
+.programm.gross .text > :first-child{margin-top:0}
