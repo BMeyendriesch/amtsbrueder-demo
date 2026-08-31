@@ -310,7 +310,18 @@ footer li{margin:0 0 3px}
 
 /* ---------- Korrekturen nach Ulis Liste vom 31.08.2026 ---------- */
 /* 1) Titelfoto: auf breiten Schirmen war Mannis Kopf angeschnitten */
+.hero{background-image:url('../bilder/stemwede-2024.jpg')}
 @media (min-width:721px){.hero{background-position:center 22%}}
+/* 1b) Auf dem Handy trug die Buehnenaufnahme nicht: quer aufgenommen, die beiden
+   stehen weit auseinander, in der Mitte blieb nur der Vorhang. Schmale Schirme
+   bekommen deshalb den Gartenausschnitt und einen niedrigeren Kopfbereich,
+   damit die Knoepfe nicht hinter der Safari-Leiste verschwinden. */
+@media (max-width:640px){
+  .hero{background-image:url('../bilder/hero-handy.jpg');background-position:center 22%;
+    min-height:min(78svh,660px)}
+  .hero::before{background:linear-gradient(180deg,rgba(20,12,4,.34) 0%,rgba(20,12,4,.14) 24%,rgba(20,12,4,.40) 40%,rgba(20,12,4,.62) 60%,rgba(18,10,3,.93) 100%)}
+  .hero-inner{padding:28px 20px 34px}
+}
 /* 2) Schriftzug „Die Amtsbrüder“ lief auf schmalen Schirmen über den Rand */
 @media (max-width:520px){.hero h1{font-size:clamp(34px,11.5vw,52px)}}
 /* 3) Foto mit Anne Heinz: Ausschnitt nach oben, damit die Köpfe drin bleiben */
