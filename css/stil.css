@@ -324,8 +324,11 @@ footer li{margin:0 0 3px}
 }
 /* 2) Schriftzug „Die Amtsbrüder“ lief auf schmalen Schirmen über den Rand */
 @media (max-width:520px){.hero h1{font-size:clamp(34px,11.5vw,52px)}}
-/* 3) Foto mit Anne Heinz: Ausschnitt nach oben, damit die Köpfe drin bleiben */
-.formation .tack.kopf-oben img{object-position:50% 12%}
+/* 3) Foto mit Anne Heinz: Uli hat das Bild am 31.08.2026 nach oben erweitert.
+   Der Ausschnitt sitzt trotzdem etwas höher als die Mitte, damit im 4:3-Feld
+   alle drei Köpfe stehen — auch in der Galerie, die dasselbe Motiv zeigt. */
+.formation .tack.kopf-oben img,
+.gallery .tack img[src*="anne-heinz-garten"]{object-position:50% 10%}
 /* 4) Musikrichtungen: ein Rahmen um die Aufzählung statt einer je Wort */
 .chips.rahmen{border:2px solid var(--frame);border-radius:12px;background:var(--paper-2);
   padding:14px 18px;gap:0 10px;align-items:baseline}
