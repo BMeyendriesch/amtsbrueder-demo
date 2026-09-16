@@ -340,3 +340,11 @@ footer li{margin:0 0 3px}
 @media (max-width:720px){.programm.gross{grid-template-columns:1fr}}
 .programm.gross figure.tack{margin:0;max-width:none}
 .programm.gross .text > :first-child{margin-top:0}
+
+/* ---------- Korrekturen nach Ulis Liste vom 16.09.2026 ---------- */
+/* 3.1) Burgsteinfurt ist sehr breit (924 x 568); im 4:3-Feld fielen Manni links und
+   Christina rechts halb heraus. Die Vorschau zeigt das Foto deshalb ganz, oben und
+   unten bleibt etwas vom weißen Abzugsrand stehen. */
+.gallery .tack img[src*="burgsteinfurt-2024"]{object-fit:contain;background:#fff}
+/* 3.2) Uli Preuss steht hochkant im 4:3-Feld: Ausschnitt nach oben, damit der Kopf drin ist */
+.gallery .tack img[src*="uli-preuss"]{object-position:50% 4%}
